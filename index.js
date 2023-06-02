@@ -1,7 +1,6 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const sequelize = require("./util/database");
-const User = require("./models/user");
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -18,7 +17,7 @@ app.get("/", (req, res, next) => {
   res.send("Hello world");
 });
 
-app.use("/users", require("./routes/users"));
+app.use("/posts", require("./routes/posts"));
 
 app.use((error, req, res, next) => {
   console.log(err);
